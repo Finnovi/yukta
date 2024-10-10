@@ -1,9 +1,10 @@
-import { useState } from 'react';
-import { Dialog, DialogPanel } from '@headlessui/react';
-import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
+'use client';
+import { useState } from "react";
+import { Dialog, DialogPanel } from "@headlessui/react";
+import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 
-function Navbar() {
-  const [isOpen, setIsOpen] = useState(false);
+const Navbar = () => {
+    const [isOpen, setIsOpen] = useState(false);
 
   return (
     <nav className="bg-emerald-200 p-4">
@@ -31,20 +32,32 @@ function Navbar() {
 
         {/* Desktop Menu */}
         <ul className="hidden md:flex space-x-8">
-          <li className="hover:text-emerald-700 cursor-pointer hover:scale-110 transition-transform duration-300 ease-in-out">Home</li>
-          <li className="hover:text-emerald-700 cursor-pointer hover:scale-110 transition-transform duration-300 ease-in-out">Shop</li>
-          <li className="hover:text-emerald-700 cursor-pointer hover:scale-110 transition-transform duration-300 ease-in-out">Doctor Appointment</li>
-          <li className="hover:text-emerald-700 cursor-pointer hover:scale-110 transition-transform duration-300 ease-in-out">Contact</li>
+          <li className="hover:text-emerald-700 cursor-pointer hover:scale-110 transition-transform duration-300 ease-in-out">
+            Home
+          </li>
+          <li className="hover:text-emerald-700 cursor-pointer hover:scale-110 transition-transform duration-300 ease-in-out">
+            Shop
+          </li>
+          <li className="hover:text-emerald-700 cursor-pointer hover:scale-110 transition-transform duration-300 ease-in-out">
+            Doctor Appointment
+          </li>
+          <li className="hover:text-emerald-700 cursor-pointer hover:scale-110 transition-transform duration-300 ease-in-out">
+            Contact
+          </li>
         </ul>
       </div>
 
       {/* Mobile Menu using Dialog from Headless UI */}
-      <Dialog open={isOpen} onClose={() => setIsOpen(false)} className="relative z-10">
+      <Dialog
+        open={isOpen}
+        onClose={() => setIsOpen(false)}
+        className="relative z-10"
+      >
         <div className="fixed inset-0 bg-black bg-opacity-25 transition-opacity duration-300" />
 
         <DialogPanel
           className={`fixed inset-0 bg-white shadow-lg p-4 transform transition-transform duration-300 ease-in-out ${
-            isOpen ? 'translate-x-0' : 'translate-x-full'
+            isOpen ? "translate-x-0" : "translate-x-full"
           }`}
         >
           <div className="flex justify-between items-center">
@@ -66,15 +79,23 @@ function Navbar() {
           </div>
 
           <ul className="mt-4 space-y-4">
-            <li className="hover:text-emerald-700 cursor-pointer hover:scale-105 transition-transform duration-300 ease-in-out">Home</li>
-            <li className="hover:text-emerald-700 cursor-pointer hover:scale-105 transition-transform duration-300 ease-in-out">Shop</li>
-            <li className="hover:text-emerald-700 cursor-pointer hover:scale-105 transition-transform duration-300 ease-in-out">Doctor Appointment</li>
-            <li className="hover:text-emerald-700 cursor-pointer hover:scale-105 transition-transform duration-300 ease-in-out">Contact</li>
+            <li className="hover:text-emerald-700 cursor-pointer hover:scale-105 transition-transform duration-300 ease-in-out">
+              Home
+            </li>
+            <li className="hover:text-emerald-700 cursor-pointer hover:scale-105 transition-transform duration-300 ease-in-out">
+              Shop
+            </li>
+            <li className="hover:text-emerald-700 cursor-pointer hover:scale-105 transition-transform duration-300 ease-in-out">
+              Doctor Appointment
+            </li>
+            <li className="hover:text-emerald-700 cursor-pointer hover:scale-105 transition-transform duration-300 ease-in-out">
+              Contact
+            </li>
           </ul>
         </DialogPanel>
       </Dialog>
     </nav>
   );
-}
+};
 
 export default Navbar;
